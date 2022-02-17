@@ -29,7 +29,7 @@ public class SpellChecker
   {
     int numChecks = 0;
     
-    for(int i=0; i < dictionary.size(); i++)
+    for (int i=0; i < dictionary.size(); i++)
     {
       numChecks++;
       
@@ -50,11 +50,28 @@ public class SpellChecker
     * Instead of returning the index the word is found, it simply returns TRUE
     * if the word is found, and FALSE otherwise.
   */
-  public boolean binarySpellCheck(String word)
-  {
-    /* IMPLEMENT ME! */
 
-    return false; // STUB
+  public boolean binarySpellCheck(String target) {
+    int left = 0;
+    int right = dictionary.size() - 1;
+    int numChecks = 0;
+
+    while (left <= right) {
+      numChecks++;
+      int middle = (left + right) / 2;
+
+      if (target.compareTo(dictionary.get(middle)) < 0) {
+        right = middle - 1;
+      } else if (target.compareTo(dictionary.get(middle)) > 0) {
+        left = middle + 1;
+      } else {
+        System.out.println("-- LINEAR SEARCH: Number of words checked (loops/runtime): " + numChecks);
+        return true;
+      }
+    }
+
+    System.out.println("-- LINEAR SEARCH: Number of words checked (loops/runtime): " + numChecks);
+    return false;
   }
 
   // private helper method, called in the constructor, which loads the words

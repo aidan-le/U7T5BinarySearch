@@ -41,7 +41,12 @@ public class BinarySearch
      // if value not found, return -1
      return -1;
   }
-
+    /** This uses BINARY search to find a word in the dictionary ArrayList and
+     * prints out the number of words checked.
+     *
+     * Instead of returning the index the word is found, it simply returns TRUE
+     * if the word is found, and FALSE otherwise.
+     */
   public static int binarySearchPrintedCommentary(int[] elements, int target)
   {
     int left = 0;
